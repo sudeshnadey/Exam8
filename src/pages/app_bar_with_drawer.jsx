@@ -21,23 +21,36 @@ import MailIcon from '@mui/icons-material/Mail';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import { makeStyles } from '@material-ui/core/styles';
+import { ArticleOutlined, DescriptionOutlined } from '@mui/icons-material';
+import TopicOutlined from '@mui/icons-material/TopicOutlined';
+
 const EndButtonsContainer = styled('div')({
   marginLeft: 'auto',
 });
 
+
+const useStyles = makeStyles({
+  paper: {
+    background: 'black',
+    color: 'white'
+  }
+});
+
 const WhiteIconButton = styled(IconButton)({
-    color: 'white',
-    border: `1px solid white`,
-    borderRadius: '50%',
-    padding:"5px",
-    marginLeft: '10px',
-    
+  color: '#FF595A',
+  border: `1px solid #FF595A`,
+  borderRadius: '50%',
+  padding: "5px",
+  marginLeft: '10px',
+
 });
 
 
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
+
   width: drawerWidth,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -70,12 +83,14 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
+  color: '#FF595A',
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
+    color: '#FF595A',
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(['width', 'margin'], {
@@ -84,20 +99,27 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
-
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
+    
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
+    
     ...(open && {
       ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
+      '& .MuiDrawer-paper': {
+        ...(open ? openedMixin(theme) : closedMixin(theme)),
+        background: '#001233', 
+      },
     }),
     ...(!open && {
       ...closedMixin(theme),
-      '& .MuiDrawer-paper': closedMixin(theme),
+      '& .MuiDrawer-paper': {
+        ...closedMixin(theme),
+        background: '#001233', 
+      }
     }),
   }),
 );
@@ -114,10 +136,13 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  const styles = useStyles();
+
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} elevation={0}>
+      <AppBar sx={{ bgcolor: "#001233" }} position="fixed" open={open} elevation={0}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -131,57 +156,61 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-         
-        
-        <EndButtonsContainer>
-          <WhiteIconButton>
-            <CardGiftcardIcon style={{fontSize: '19px',}} />
-          </WhiteIconButton>
-          <WhiteIconButton>
-            <QuestionMarkIcon style={{fontSize: '19px',}}/>
-          </WhiteIconButton>
-          <WhiteIconButton>
-            <PermIdentityIcon  style={{fontSize: '19px',}}/>
-          </WhiteIconButton>
-        </EndButtonsContainer>
-     
+
+
+          <EndButtonsContainer>
+            <WhiteIconButton>
+              <CardGiftcardIcon style={{ fontSize: '19px', color: "#FF595A" }} />
+            </WhiteIconButton>
+            <WhiteIconButton>
+              <QuestionMarkIcon style={{ fontSize: '19px', color: "#FF595A" }} />
+            </WhiteIconButton>
+            <WhiteIconButton>
+              <PermIdentityIcon style={{ fontSize: '19px', color: "#FF595A" }} />
+            </WhiteIconButton>
+          </EndButtonsContainer>
+
 
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+      <Drawer variant="permanent" open={open} paperprops={{
+        sx: {
+          backgroundcolor: "#001233"
+        }
+      }}  >
+        <DrawerHeader sx={{ bgcolor: "#001233" }}>
+          <IconButton onClick={handleDrawerClose} style={{ color: "#ff595a" }}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-        {[
-          { text: 'Dashboard', icon: <InboxIcon />, path: '/' },
-          { text: 'Create Paper', icon:<InboxIcon />, path: '/create-paper' },
-          { text: 'View Papers', icon:<InboxIcon />, path: '/view-papers' },
-          { text: 'My Questions', icon:<InboxIcon />, path: '/my-questions' },
-        ].map((item) => (
-          <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
-            <ListItemButton component={Link} to={item.path}   sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+        <List sx={{ bgcolor: "#001233" }}>
+          {[
+            { text: 'Dashboard', icon: <InboxIcon style={{  color: "#FF595A" }}/>, path: '/' },
+            { text: 'Create Paper', icon: <DescriptionOutlined style={{  color: "#FF595A" }}/>, path: '/create-paper' },
+            { text: 'View Papers', icon: <ArticleOutlined  style={{  color: "#FF595A" }}/>, path: '/view-papers' },
+            { text: 'My Questions', icon: <TopicOutlined  style={{  color: "#FF595A" }}/>, path: '/my-questions' },
+          ].map((item) => (
+            <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton component={Link} to={item.path} sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}>
+                <ListItemIcon sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}>
-              <ListItemIcon  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
         <Divider />
-        <List>
+        <List sx={{ bgcolor: "#001233" }}>
           {['Blueprints', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
@@ -206,7 +235,7 @@ export default function MiniDrawer() {
           ))}
         </List>
       </Drawer>
-     
+
     </Box>
   );
 }

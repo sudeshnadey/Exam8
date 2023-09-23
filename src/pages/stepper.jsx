@@ -12,7 +12,7 @@ const steps = [
 
 export default function CustomStepper() {
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%' }} style={{ padding: "30px" }}>
       <Stepper activeStep={1} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>

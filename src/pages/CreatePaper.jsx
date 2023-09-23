@@ -1,10 +1,11 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import "./dashboard.css";
 import { makeStyles } from "@material-ui/core/styles";
 import TextCard from "../components/text-card";
-import { Box, Card, TextField } from "@material-ui/core";
-import { Theme, withStyles } from "@material-ui/core/styles";
+import {
+  Button, Box, Card, TextField, Divider, List,
+  ListItem
+} from "@material-ui/core";
+
 import {
   Breadcrumbs,
   Typography,
@@ -13,25 +14,25 @@ import {
   Radio,
   RadioGroup,
   Grid,
+  Checkbox,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import CustomStepper from "./stepper";
+import Footer from "../components/footer";
 
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#EDF3F7",
     minHeight: "100vh",
   },
-  input: {
-    padding: '5px', // Adjust the padding value as needed
-  },
+
 });
 
-  
+
 export default function CreatePaper() {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{ padding: "20px" }}>
       <Box height={80} />
       <TextCard>
         <div>
@@ -48,31 +49,20 @@ export default function CreatePaper() {
           </Breadcrumbs>
         </div>
       </TextCard>
-      <CustomStepper />
       <Card style={{ margin: "20px" }} elevation={0}>
-        <Typography style={{ padding: "10px", color: "#6C7781" }}>
+        <CustomStepper />
+      </Card>
+      <Card style={{ margin: "20px" }} elevation={0}>
+        <Typography style={{ paddingLeft: "20px", paddingTop: "20px", color: "#6C7781" }}>
           Class & Subject
         </Typography>
-        <Grid container style={{ padding: "10px"}}>
-        <Grid item>
-        <TextField
-        variant="outlined"
-      value="Input"
-      InputProps={{
-        classes: {
-          input: classes.input,
-        },
-      }}
-    />
-        </Grid>
+        <Grid container style={{ padding: "20px" }}>
+          <Grid item>
+            <TextField variant="outlined" />
+          </Grid>
 
-        <Grid item alignItems="stretch" style={{ display: "flex" }}>
-          <Button variant="contained" color="red">
-            EDIT
-          </Button>
+
         </Grid>
-       
-      </Grid>
       </Card>
       <Card style={{ margin: "20px" }} elevation={0}>
         <Grid container direction="column">
@@ -138,6 +128,102 @@ export default function CreatePaper() {
           </Grid>
         </Grid>
       </Card>
+      <Card style={{ margin: "20px" }} elevation={0}>
+        <Typography style={{ padding: "20px" }}>PDF Header & Footer (View/Edit)</Typography>
+        <FormControl component="fieldset" style={{ padding: "20px" }}>
+          <Typography variant="subtitle1" gutterBottom>
+            New dps public school
+          </Typography>
+          <RadioGroup defaultValue="New dps public school">
+            <FormControlLabel
+              value="New dps public school"
+              control={<Radio />}
+              label="New dps public school"
+
+            />
+          </RadioGroup>
+        </FormControl>
+
+        <Divider />
+        <Box height={20} />
+        <Grid container direction="column">
+          <Grid item>
+            <TextField
+              variant="outlined"
+              style={{ margin: "20px" }}
+              label="Test Paper Name"
+              helperText={'Please enter testpaper name'}
+            />
+
+          </Grid>
+          <Grid item>
+
+            <TextField
+              variant="outlined"
+              type="number"
+              style={{ margin: "20px" }}
+              label="Time Allowed (minutes)"
+              helperText={'Please enter time'}
+            />
+          </Grid>
+
+          <Grid item style={{ marginLeft: "20px" }}>
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Add Watermark in PDF"
+            />
+          </Grid>
+        </Grid>
+
+      </Card>
+      <Card style={{ margin: "20px" }} elevation={0}>
+        <Grid container direction="column">
+          <Grid item>
+            <FormControlLabel
+              style={{ margin: "10px" }}
+              control={<Checkbox />}
+              label="Show marks along side each question"
+            />
+          </Grid>
+          <Grid item style={{ margin: "20px" }}>
+            <TextField
+
+              variant="outlined"
+              label="General Instructions"
+              multiline
+              rows={8}
+
+            />
+          </Grid>
+          <Grid item>
+            <FormControlLabel
+              style={{ margin: "10px" }}
+              control={<Checkbox />}
+              label="I have read and agree to the Terms of Use of this test generator."
+            />
+          </Grid>
+          <Grid item>
+            <List>
+              <ListItem>
+                <Typography style={{ color: "red" }}>- Please select class & subject.</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography style={{ color: "red" }}>- Please enter testpaper name.</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography style={{ color: "red" }}>- Please enter valid time</Typography>
+              </ListItem>
+
+            </List>
+          </Grid>
+          <Grid item    style={{ margin: "20px" }}>
+            <Button variant="contained" color="primary">
+              Save & Continue
+            </Button>
+          </Grid>
+        </Grid>
+      </Card>
+      <Footer />
     </div>
   );
 }
