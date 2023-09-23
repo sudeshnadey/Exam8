@@ -21,7 +21,7 @@ const Sidebar = ({children}) => {
             icon:<FaTh/>
         },
         {
-            path:"/create paper",
+            path:"/create-paper",
             name:"Create Paper",
             icon:<FaUserAlt/>
         },

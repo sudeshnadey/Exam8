@@ -15,12 +15,12 @@ const Link = styled(Typography)({
   
 
 const CopyButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.success.main,
-    borderColor: theme.palette.success.main,
-    "&:hover": {
-      color: theme.palette.success.contrastText,
-      backgroundColor: theme.palette.success.main,
-    },
+  color:  "#001233",
+  borderColor: "#001233",
+  "&:hover": {
+    color: "#ff595a",
+    backgroundColor: "#001233",
+  },
 }));
 
 function TextWithLinkAndButton() {

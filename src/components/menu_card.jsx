@@ -20,7 +20,7 @@ export default function MenuCard({ icon, text }) {
           <Grid item>
             <Typography
               variant="h6"
-              style={{ color: "#1ABC9C", fontSize: "16px" ,fontWeight: "bold" }}
+              style={{ color: "#001233", fontSize: "16px" ,fontWeight: "bold" }}
             >
               {text}
             </Typography>

@@ -9,20 +9,21 @@ const RowContainer = styled(Grid)(({ theme }) => ({
 }));
 
 const ManageButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.primary.main,
-  borderColor: theme.palette.primary.main,
+  color:  "#001233",
+  borderColor: "#001233",
   "&:hover": {
-    color: theme.palette.primary.contrastText,
-    backgroundColor: theme.palette.primary.main,
+    color: "#ff595a",
+    backgroundColor: "#001233",
   },
 }));
 
 const InviteButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.success.main,
-  borderColor: theme.palette.success.main,
+ 
+  color: "#ff595a",
+  borderColor: "#ff595a",
   "&:hover": {
-    color: theme.palette.success.contrastText,
-    backgroundColor: theme.palette.success.main,
+    color:"#001233",
+    backgroundColor:  "#ff595a",
   },
 }));
 
@@ -31,7 +32,7 @@ function RowWidget({batchName}) {
     <RowContainer container>
       <Grid item>
         <SchoolOutlinedIcon
-          style={{ color: "#1ABC9C" }}
+          style={{ color: "#001233" }}
           sx={{ fontSize: 40 }}
         />
       </Grid>

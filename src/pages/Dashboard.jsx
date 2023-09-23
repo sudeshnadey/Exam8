@@ -26,7 +26,7 @@ import Divider from "@mui/material/Divider";
 import Footer from "../components/footer";
 
 const buttonStyle = {
-  backgroundColor: "#66BB6A",
+  backgroundColor: "#001233",
   color: "white",
   marginRight: "10px",
   paddingTop: "5px",
@@ -34,8 +34,8 @@ const buttonStyle = {
 };
 
 const outlineButtonStyle = {
-  border: "1px solid green",
-  color: "#66BB6A",
+  border: "1px solid #ff595a",
+  color: "#001233",
   marginRight: "10px",
   paddingTop: "5px",
   marginBottom: "5px",
@@ -43,18 +43,18 @@ const outlineButtonStyle = {
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: "#EDF3F7",
+    backgroundColor: "#f2f0ed",
     minHeight: "100vh",
   },
 });
 const Dashboard = () => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{ padding: "20px" }}>
       <Box height={80} />
-      <TextCard />
+      <TextCard>New dps public school</TextCard>
       <CustomCard cardTitle={"Generate New Question Paper"}>
-        <Button variant="contained" style={buttonStyle} color="success">
+        <Button variant="contained" style={buttonStyle} >
           Start
         </Button>
         <Button
@@ -71,7 +71,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <DescriptionOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -82,7 +82,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <ArticleOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -93,7 +93,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <TopicOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -104,7 +104,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <FolderCopyOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -115,7 +115,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <TaskOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -140,7 +140,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <AccountBalanceOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -151,7 +151,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <SchoolOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -162,7 +162,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <LocalLibraryOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -173,7 +173,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <CastForEducationOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -188,7 +188,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <ManageAccountsOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -199,7 +199,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <SubscriptionsOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -210,7 +210,7 @@ const Dashboard = () => {
             <MenuCard
               icon={
                 <AccountBalanceWalletOutlinedIcon
-                  style={{ color: "#1ABC9C" }}
+                  style={{ color: "#001233" }}
                   sx={{ fontSize: 100 }}
                 />
               }
@@ -234,26 +234,26 @@ const Dashboard = () => {
         </center>
       </CustomCard>
       <CustomCard cardTitle={"Salient Features"}>
-      <List>
-        <ListItem>
-          <Typography>- Create Question Papers</Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>- Conduct Online Tests</Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>- Upload Video Links</Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>- Share Study Material</Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>- Free Mobile App for Students</Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>- Question Bank of 6 Lakh Questions</Typography>
-        </ListItem>
-      </List>
+        <List>
+          <ListItem>
+            <Typography>- Create Question Papers</Typography>
+          </ListItem>
+          <ListItem>
+            <Typography>- Conduct Online Tests</Typography>
+          </ListItem>
+          <ListItem>
+            <Typography>- Upload Video Links</Typography>
+          </ListItem>
+          <ListItem>
+            <Typography>- Share Study Material</Typography>
+          </ListItem>
+          <ListItem>
+            <Typography>- Free Mobile App for Students</Typography>
+          </ListItem>
+          <ListItem>
+            <Typography>- Question Bank of 6 Lakh Questions</Typography>
+          </ListItem>
+        </List>
       </CustomCard>
       <Footer />
       <Box height={3} />

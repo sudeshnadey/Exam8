@@ -7,7 +7,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 const useStyles = makeStyles({
   header: {
     backgroundColor: "#F8F9F9",
-    color: "#2196F3",
+    color: "#001233",
     fontSize: "6px !important",
   },
   root: {
