@@ -1,0 +1,30 @@
+h1 {
+    color: rgb(96, 96, 96);
+}
+
+.card1 {
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        padding: 10px;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    @media (max-width: 576px) {
+        padding: 5px;
+        font-size: 14px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+.button2{
+   margin-left:10px;
+}
