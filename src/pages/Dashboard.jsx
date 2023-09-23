@@ -52,7 +52,7 @@ const Dashboard = () => {
   return (
     <div className={classes.root}>
       <Box height={80} />
-      <TextCard />
+      <TextCard>New dps public school</TextCard>
       <CustomCard cardTitle={"Generate New Question Paper"}>
         <Button variant="contained" style={buttonStyle} color="success">
           Start
@@ -234,26 +234,26 @@ const Dashboard = () => {
         </center>
       </CustomCard>
       <CustomCard cardTitle={"Salient Features"}>
-      <List>
-        <ListItem>
-          <Typography>- Create Question Papers</Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>- Conduct Online Tests</Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>- Upload Video Links</Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>- Share Study Material</Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>- Free Mobile App for Students</Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>- Question Bank of 6 Lakh Questions</Typography>
-        </ListItem>
-      </List>
+        <List>
+          <ListItem>
+            <Typography>- Create Question Papers</Typography>
+          </ListItem>
+          <ListItem>
+            <Typography>- Conduct Online Tests</Typography>
+          </ListItem>
+          <ListItem>
+            <Typography>- Upload Video Links</Typography>
+          </ListItem>
+          <ListItem>
+            <Typography>- Share Study Material</Typography>
+          </ListItem>
+          <ListItem>
+            <Typography>- Free Mobile App for Students</Typography>
+          </ListItem>
+          <ListItem>
+            <Typography>- Question Bank of 6 Lakh Questions</Typography>
+          </ListItem>
+        </List>
       </CustomCard>
       <Footer />
       <Box height={3} />
