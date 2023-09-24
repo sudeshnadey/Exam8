@@ -1,20 +1,19 @@
 import React from "react";
-import CustomCard from "../components/card";
+import CustomCard from "../../components/shared/card";
 import Button from "react-bootstrap/Button";
-import "./dashboard.css";
 import { makeStyles } from "@material-ui/core/styles";
-import TextCard from "../components/text-card";
+import TextCard from "../../components/dashboard/text-card";
 import { Box, Typography, List, ListItem } from "@material-ui/core";
 import { Grid } from "@material-ui/core/";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
-import MenuCard from "../components/menu_card";
+import MenuCard from "../../components/shared/menu_card";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
 import TopicOutlinedIcon from "@mui/icons-material/TopicOutlined";
 import TaskOutlinedIcon from "@mui/icons-material/TaskOutlined";
 import FolderCopyOutlinedIcon from "@mui/icons-material/FolderCopyOutlined";
-import RowWidget from "../components/row_widget_with_buttons";
-import TextWithLinkAndButton from "../components/text_wth_link_and_button";
-import AndroidLinkAndButton from "../components/android_app_link";
+import RowWidget from "../../components/shared/row_widget_with_buttons";
+import TextWithLinkAndButton from "../../components/dashboard/text_wth_link_and_button";
+import AndroidLinkAndButton from "../../components/dashboard/android_app_link";
 import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import LocalLibraryOutlinedIcon from "@mui/icons-material/LocalLibraryOutlined";
@@ -23,7 +22,7 @@ import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlin
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import Divider from "@mui/material/Divider";
-import Footer from "../components/footer";
+import Footer from "../../components/shared/footer";
 
 const buttonStyle = {
   backgroundColor: "#001233",
@@ -43,7 +42,7 @@ const outlineButtonStyle = {
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: "#f2f0ed",
+    backgroundColor: "#EDF3F7",
     minHeight: "100vh",
   },
 });
