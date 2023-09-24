@@ -16,26 +16,25 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import Typography from '@mui/material/Typography';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import { makeStyles } from '@material-ui/core/styles';
 import { ArticleOutlined, DescriptionOutlined } from '@mui/icons-material';
 import TopicOutlined from '@mui/icons-material/TopicOutlined';
-
+import FolderCopyOutlinedIcon from "@mui/icons-material/FolderCopyOutlined";
+import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
+import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
+import LocalLibraryOutlinedIcon from "@mui/icons-material/LocalLibraryOutlined";
+import CastForEducationOutlinedIcon from "@mui/icons-material/CastForEducationOutlined";
+import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
+import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import FilterNoneOutlinedIcon from '@mui/icons-material/FilterNoneOutlined';
 const EndButtonsContainer = styled('div')({
   marginLeft: 'auto',
 });
 
-
-const useStyles = makeStyles({
-  paper: {
-    background: 'black',
-    color: 'white'
-  }
-});
 
 const WhiteIconButton = styled(IconButton)({
   color: '#FF595A',
@@ -136,8 +135,6 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
-  const styles = useStyles();
-
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -183,10 +180,9 @@ export default function MiniDrawer() {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider />
-        <List sx={{ bgcolor: "#001233" }}>
+        <List sx={{ bgcolor: "#001233",color:"#ffffff" }}>
           {[
-            { text: 'Dashboard', icon: <InboxIcon style={{  color: "#FF595A" }}/>, path: '/' },
+            { text: 'Dashboard', icon: <HomeOutlinedIcon style={{  color: "#FF595A" }}/>, path: '/' },
             { text: 'Create Paper', icon: <DescriptionOutlined style={{  color: "#FF595A" }}/>, path: '/create-paper' },
             { text: 'View Papers', icon: <ArticleOutlined  style={{  color: "#FF595A" }}/>, path: '/view-papers' },
             { text: 'My Questions', icon: <TopicOutlined  style={{  color: "#FF595A" }}/>, path: '/my-questions' },
@@ -209,27 +205,56 @@ export default function MiniDrawer() {
             </ListItem>
           ))}
         </List>
-        <Divider />
-        <List sx={{ bgcolor: "#001233" }}>
-          {['Blueprints', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+        <Divider style={{ background: 'white', margin: 0 }} variant="inset" />
+        <List sx={{ bgcolor: "#001233",color:"#ffffff" }}>
+          {[
+            { text: 'Blueprints', icon: <FolderCopyOutlinedIcon style={{  color: "#FF595A" }}/>, path: '/' },
+            { text: 'My Instituite', icon: <AccountBalanceOutlinedIcon style={{  color: "#FF595A" }}/>, path: '/create-paper' },
+            { text: 'Batchs', icon: <SchoolOutlinedIcon  style={{  color: "#FF595A" }}/>, path: '/view-papers' },
+            { text: 'Students', icon: <LocalLibraryOutlinedIcon  style={{  color: "#FF595A" }}/>, path: '/my-questions' },
+            { text: 'Teachers', icon: <CastForEducationOutlinedIcon  style={{  color: "#FF595A" }}/>, path: '/my-questions' },
+          ].map((item) => (
+            <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton component={Link} to={item.path} sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}>
+                <ListItemIcon sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}>
+                  {item.icon}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+
+        <Divider style={{ background: 'white', margin: 0 }} variant="inset" />
+        <List sx={{ bgcolor: "#001233",color:"#ffffff" }}>
+          {[
+            { text: 'Refer & Earn', icon: <AccountBalanceWalletOutlinedIcon style={{  color: "#FF595A" }}/>, path: '/' },
+            { text: 'Subscriptions', icon: <SubscriptionsOutlinedIcon style={{  color: "#FF595A" }}/>, path: '/create-paper' },
+            { text: 'My Orders', icon: <FilterNoneOutlinedIcon  style={{  color: "#FF595A" }}/>, path: '/view-papers' },
+          
+          ].map((item) => (
+            <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton component={Link} to={item.path} sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}>
+                <ListItemIcon sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}>
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           ))}

@@ -128,16 +128,17 @@ const outlineButtonStyle = {
 };
 
 export default function ViewPaper() {
-    const [selectedValue, setSelectedValue] = useState('All');
     const [open, setOpen] = React.useState(false);
+    const [selectedValue, setSelectedValue] = useState('All');
+
+    const handleChange = (event) => {
+        setSelectedValue(event.target.value);
+    };
     const handleOpen = () => {
         setOpen(true);
     };
     const handleClose = () => {
         setOpen(false);
-    };
-    const handleChange = (event) => {
-        setSelectedValue(event.target.value);
     };
     const classes = useStyles();
     return (
