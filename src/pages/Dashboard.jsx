@@ -43,7 +43,7 @@ const outlineButtonStyle = {
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: "#f2f0ed",
+    backgroundColor: "#EDF3F7",
     minHeight: "100vh",
   },
 });
