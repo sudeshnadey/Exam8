@@ -2,19 +2,19 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import Dashboard from './pages/Dashboard.jsx';
+import Dashboard from './pages/dashboard/Dashboard';
+import CreatePaper from './pages/createPaper/CreatePaper';
+import ViewPaper from './pages/viewPaper/View_Papers.jsx';
 import Analytics from './pages/Analytics.jsx';
 import Product from './pages/Product.jsx';
 import ProductList from './pages/ProductList.jsx';
 import MiniDrawer from './pages/app_bar_with_drawer';
-import CreatePaper from './pages/CreatePaper';
-import ViewPaper from './pages/View_Papers';
 
 
-const App = () => {  
+const App = () => {
   return (
-    <BrowserRouter > 
-     <MiniDrawer/>
+    <BrowserRouter >
+      <MiniDrawer />
       <Sidebar>
         <Routes>
           <Route path="/" element={<Dashboard />} />

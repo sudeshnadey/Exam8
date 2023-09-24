@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import TextCard from "../components/text-card";
+import TextCard from "../../components/dashboard/text-card";
 import {
-  Button, Box, Card, TextField, Divider, List,
+  Button, Box, Card, Divider, List,
   ListItem
 } from "@material-ui/core";
 
@@ -15,16 +15,24 @@ import {
   RadioGroup,
   Grid,
   Checkbox,
+  InputAdornment,
+  TextField,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import CustomStepper from "./stepper";
-import Footer from "../components/footer";
+import CustomStepper from "../stepper";
+import Footer from "../../components/shared/footer";
 
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#EDF3F7",
     minHeight: "100vh",
   },
+  textField: {
+    '& .MuiInputBase-root': {
+        padding: 0, // Remove padding
+        margin: 0, // Remove margin
+    },
+},
 
 });
 
@@ -37,10 +45,10 @@ export default function CreatePaper() {
       <TextCard>
         <div>
           <Breadcrumbs separator="/" aria-label="breadcrumb">
-            <Link style={{ textDecoration: "none" }} to="/">
+            <Link style={{ textDecoration: "none", color: "#FF595A" }} to="/">
               <b>Home</b>
             </Link>
-            <Link style={{ textDecoration: "none" }} to="/questions">
+            <Link style={{ textDecoration: "none", color: "#FF595A" }} to="/questions">
               <b>Questions Paper</b>
             </Link>
             <Typography color="textPrimary">
@@ -56,13 +64,39 @@ export default function CreatePaper() {
         <Typography style={{ paddingLeft: "20px", paddingTop: "20px", color: "#6C7781" }}>
           Class & Subject
         </Typography>
-        <Grid container style={{ padding: "20px" }}>
-          <Grid item>
-            <TextField variant="outlined" />
-          </Grid>
+        <TextField
+              style={{ marginLeft: "20px",
+            }}
+              className={classes.textField}
+              label="Search By Name"
+              variant="outlined"
+              sx={{
+                '& .MuiInputBase-root': {
+                  height: '40px',
+                  width:"500px", // Customize the height here
+                },
+                '& .MuiInputAdornment-positionEnd': { marginRight: 0, paddingRight: 0},
+                paddingTop: "10px",
+               
+              }}
+              InputLabelProps={{
+                sx: { paddingLeft: '4px', paddingTop: '1px' }, // Adjust the padding here
+              }}
 
-
-        </Grid>
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end" style={{ margin: 0 }}>
+                    <Button
+                      onClick={() => { }}
+                      style={{ backgroundColor: "#001233", borderRadius: '3px', width: "50px", }}
+                    >
+                      <Typography style={{color:'white'}}> Edit</Typography> 
+                    </Button>
+                  </InputAdornment>
+                ),
+              }}
+            />
+             <Box height={30} />
       </Card>
       <Card style={{ margin: "20px" }} elevation={0}>
         <Grid container direction="column">
@@ -144,13 +178,22 @@ export default function CreatePaper() {
           </RadioGroup>
         </FormControl>
 
-        <Divider />
+        <Divider style={{ background: 'gray', marginLeft: 20,marginRight: 20 }} variant="inset" />
         <Box height={20} />
         <Grid container direction="column">
           <Grid item>
             <TextField
               variant="outlined"
-              style={{ margin: "20px" }}
+              style={{ marginLeft: "20px" }}
+              sx={{
+                '& .MuiInputBase-root': {
+                  height: '40px',
+                  width:"500px", // Customize the height here
+                },
+                '& .MuiInputAdornment-positionEnd': { marginRight: 0, paddingRight: 0},
+                paddingTop: "10px",
+               
+              }}
               label="Test Paper Name"
               helperText={'Please enter testpaper name'}
             />
@@ -159,9 +202,18 @@ export default function CreatePaper() {
           <Grid item>
 
             <TextField
+               sx={{
+                '& .MuiInputBase-root': {
+                  height: '40px',
+                  width:"500px", // Customize the height here
+                },
+                '& .MuiInputAdornment-positionEnd': { marginRight: 0, paddingRight: 0},
+                paddingTop: "10px",
+               
+              }}
               variant="outlined"
               type="number"
-              style={{ margin: "20px" }}
+              style={{ marginLeft: "20px" }}
               label="Time Allowed (minutes)"
               helperText={'Please enter time'}
             />
@@ -173,8 +225,9 @@ export default function CreatePaper() {
               label="Add Watermark in PDF"
             />
           </Grid>
-        </Grid>
 
+        </Grid>
+        <Box height={30} />
       </Card>
       <Card style={{ margin: "20px" }} elevation={0}>
         <Grid container direction="column">
@@ -187,7 +240,15 @@ export default function CreatePaper() {
           </Grid>
           <Grid item style={{ margin: "20px" }}>
             <TextField
-
+                sx={{
+                  '& .MuiInputBase-root': {
+                   
+                    width:"500px", // Customize the height here
+                  },
+                  '& .MuiInputAdornment-positionEnd': { marginRight: 0, paddingRight: 0},
+            
+                 
+                }}
               variant="outlined"
               label="General Instructions"
               multiline
@@ -216,8 +277,8 @@ export default function CreatePaper() {
 
             </List>
           </Grid>
-          <Grid item    style={{ margin: "20px" }}>
-            <Button variant="contained" color="primary">
+          <Grid item style={{ margin: "20px"}}>
+            <Button variant="contained"  style={{ backgroundColor: "#001233",color:"white" }}>
               Save & Continue
             </Button>
           </Grid>
