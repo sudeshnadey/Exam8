@@ -6,8 +6,8 @@ import Dashboard from './pages/dashboard/Dashboard';
 import CreatePaper from './pages/createPaper/CreatePaper';
 import ViewPaper from './pages/viewPaper/View_Papers.jsx';
 import MyQuestions from './pages/myQuestions/my_questions.jsx';
-import Product from './pages/Product.jsx';
-import ProductList from './pages/ProductList.jsx';
+import BluePrints from './pages/bluePrints/bluePrints.jsx';
+import Batch from './pages/batch/batch.jsx';
 import MiniDrawer from './pages/app_bar_with_drawer';
 
 
@@ -22,8 +22,8 @@ const App = () => {
           <Route path="/create-paper" element={<CreatePaper />} />
           <Route path="/view-papers" element={<ViewPaper />} />
           <Route path="/my-questions" element={<MyQuestions />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/productList" element={<ProductList />} />
+          <Route path="/blueprints" element={<BluePrints />} />
+          <Route path="/batches" element={<Batch />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>

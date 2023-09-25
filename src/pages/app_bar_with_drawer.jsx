@@ -208,9 +208,9 @@ export default function MiniDrawer() {
         <Divider style={{ background: 'white', margin: 0 }} variant="inset" />
         <List sx={{ bgcolor: "#001233",color:"#ffffff" }}>
           {[
-            { text: 'Blueprints', icon: <FolderCopyOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/' },
+            { text: 'Blueprints', icon: <FolderCopyOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/blueprints' },
             { text: 'My Instituite', icon: <AccountBalanceOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/create-paper' },
-            { text: 'Batchs', icon: <SchoolOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/view-papers' },
+            { text: 'Batchs', icon: <SchoolOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/batches' },
             { text: 'Students', icon: <LocalLibraryOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/my-questions' },
             { text: 'Teachers', icon: <CastForEducationOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/my-questions' },
           ].map((item) => (
