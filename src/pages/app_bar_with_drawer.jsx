@@ -182,10 +182,10 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <List sx={{ bgcolor: "#001233",color:"#ffffff" }}>
           {[
-            { text: 'Dashboard', icon: <HomeOutlinedIcon style={{  color: "#FF595A" }}/>, path: '/' },
-            { text: 'Create Paper', icon: <DescriptionOutlined style={{  color: "#FF595A" }}/>, path: '/create-paper' },
-            { text: 'View Papers', icon: <ArticleOutlined  style={{  color: "#FF595A" }}/>, path: '/view-papers' },
-            { text: 'My Questions', icon: <TopicOutlined  style={{  color: "#FF595A" }}/>, path: '/my-questions' },
+            { text: 'Dashboard', icon: <HomeOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/' },
+            { text: 'Create Paper', icon: <DescriptionOutlined style={{  color: "#FFFFFF" }}/>, path: '/create-paper' },
+            { text: 'View Papers', icon: <ArticleOutlined  style={{  color: "#FFFFFF" }}/>, path: '/view-papers' },
+            { text: 'My Questions', icon: <TopicOutlined  style={{  color: "#FFFFFF" }}/>, path: '/my-questions' },
           ].map((item) => (
             <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton component={Link} to={item.path} sx={{
@@ -208,11 +208,11 @@ export default function MiniDrawer() {
         <Divider style={{ background: 'white', margin: 0 }} variant="inset" />
         <List sx={{ bgcolor: "#001233",color:"#ffffff" }}>
           {[
-            { text: 'Blueprints', icon: <FolderCopyOutlinedIcon style={{  color: "#FF595A" }}/>, path: '/' },
-            { text: 'My Instituite', icon: <AccountBalanceOutlinedIcon style={{  color: "#FF595A" }}/>, path: '/create-paper' },
-            { text: 'Batchs', icon: <SchoolOutlinedIcon  style={{  color: "#FF595A" }}/>, path: '/view-papers' },
-            { text: 'Students', icon: <LocalLibraryOutlinedIcon  style={{  color: "#FF595A" }}/>, path: '/my-questions' },
-            { text: 'Teachers', icon: <CastForEducationOutlinedIcon  style={{  color: "#FF595A" }}/>, path: '/my-questions' },
+            { text: 'Blueprints', icon: <FolderCopyOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/' },
+            { text: 'My Instituite', icon: <AccountBalanceOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/create-paper' },
+            { text: 'Batchs', icon: <SchoolOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/view-papers' },
+            { text: 'Students', icon: <LocalLibraryOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/my-questions' },
+            { text: 'Teachers', icon: <CastForEducationOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/my-questions' },
           ].map((item) => (
             <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton component={Link} to={item.path} sx={{
@@ -236,9 +236,9 @@ export default function MiniDrawer() {
         <Divider style={{ background: 'white', margin: 0 }} variant="inset" />
         <List sx={{ bgcolor: "#001233",color:"#ffffff" }}>
           {[
-            { text: 'Refer & Earn', icon: <AccountBalanceWalletOutlinedIcon style={{  color: "#FF595A" }}/>, path: '/' },
-            { text: 'Subscriptions', icon: <SubscriptionsOutlinedIcon style={{  color: "#FF595A" }}/>, path: '/create-paper' },
-            { text: 'My Orders', icon: <FilterNoneOutlinedIcon  style={{  color: "#FF595A" }}/>, path: '/view-papers' },
+            { text: 'Refer & Earn', icon: <AccountBalanceWalletOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/' },
+            { text: 'Subscriptions', icon: <SubscriptionsOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/create-paper' },
+            { text: 'My Orders', icon: <FilterNoneOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/view-papers' },
           
           ].map((item) => (
             <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>

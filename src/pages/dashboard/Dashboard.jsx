@@ -1,7 +1,6 @@
 import React from "react";
 import CustomCard from "../../components/shared/card";
 import Button from "react-bootstrap/Button";
-import { makeStyles } from "@material-ui/core/styles";
 import TextCard from "../../components/dashboard/text-card";
 import { Box, Typography, List, ListItem } from "@material-ui/core";
 import { Grid } from "@material-ui/core/";
@@ -23,29 +22,9 @@ import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import Divider from "@mui/material/Divider";
 import Footer from "../../components/shared/footer";
+import { buttonStyle,outlineButtonStyle,useStyles} from "../../styles/dashboard/dashboard_styles";
 
-const buttonStyle = {
-  backgroundColor: "#001233",
-  color: "white",
-  marginRight: "10px",
-  paddingTop: "5px",
-  marginBottom: "5px",
-};
 
-const outlineButtonStyle = {
-  border: "1px solid #ff595a",
-  color: "#001233",
-  marginRight: "10px",
-  paddingTop: "5px",
-  marginBottom: "5px",
-};
-
-const useStyles = makeStyles({
-  root: {
-    backgroundColor: "#EDF3F7",
-    minHeight: "100vh",
-  },
-});
 const Dashboard = () => {
   const classes = useStyles();
   return (
