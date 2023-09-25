@@ -16,6 +16,15 @@ export const outlineButtonStyle = {
   marginBottom: "5px",
 };
 
+export const blackOutlineButtonStyle = {
+  border: "1px solid #001233",
+  color: "#001233",
+  marginRight: "10px",
+  paddingTop: "5px",
+  marginBottom: "5px",
+};
+
+
 export const useStyles = makeStyles({
   root: {
     backgroundColor: "#EDF3F7",
