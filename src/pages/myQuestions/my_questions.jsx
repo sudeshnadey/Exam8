@@ -69,22 +69,22 @@ export default function MyQuestions() {
     const [selectedTopicValue, setSelectedTopicValue] = useState('Select Topic');
 
     const handleModuleChange = (event) => {
-        handleModuleChange(event.target.value);
+        setSelectedModuleValue(event.target.value);
     };
 
     const handleCourseChange = (event) => {
-        handleCourseChange(event.target.value);
+        setSelectedCourseValue(event.target.value);
     };
 
     const handleSubjectChange = (event) => {
-        handleSubjectChange(event.target.value);
+        setSelectedSubjectValue(event.target.value);
     };
 
     const handleChapterChange = (event) => {
-        handleChapterChange(event.target.value);
+        setSelectedChapterValue(event.target.value);
     };
     const handleTopicChange = (event) => {
-        handleTopicChange(event.target.value);
+        setSelectedTopicValue(event.target.value);
     };
 
     const classes = useStyles();

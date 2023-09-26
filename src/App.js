@@ -9,6 +9,7 @@ import MyQuestions from './pages/myQuestions/my_questions.jsx';
 import BluePrints from './pages/bluePrints/bluePrints.jsx';
 import Batch from './pages/batch/batch.jsx';
 import MiniDrawer from './pages/app_bar_with_drawer';
+import Student from './pages/students/students';
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/my-questions" element={<MyQuestions />} />
           <Route path="/blueprints" element={<BluePrints />} />
           <Route path="/batches" element={<Batch />} />
+          <Route path="/students" element={<Student />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>
