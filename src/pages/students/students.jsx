@@ -56,12 +56,24 @@ const style = {
 
 export default function Student() {
     const [selectedValue, setSelectedValue] = useState('All Students');
+    const [selectedClassValue, setSelectedClassValue] = useState('Class 01');
+    const [selectedBatchValue, setSelectedbatchValue] = useState('Batch Option 1');
     const [checkedItems, setCheckedItems] = useState({});
     const [checkedAllItems, setCheckedAllItems] = useState({});
+    const [checkedAgreedItems, setCheckedAgreedItems] = useState({});
     const [open, setOpen] = React.useState(false);
+    const [openRegistrationPage, setRegistrationPage] = React.useState(false);
 
     const handleChange = (event) => {
         setSelectedValue(event.target.value);
+    };
+
+    const handleClassChange = (event) => {
+        setSelectedClassValue(event.target.value);
+    };
+
+    const handleBatchChange = (event) => {
+        setSelectedbatchValue(event.target.value);
     };
 
     const data = [
@@ -95,6 +107,13 @@ export default function Student() {
 
     const handleSelectAllCheckBoxsChange = (event) => {
         setCheckedAllItems((prevCheckedItems) => ({
+            ...prevCheckedItems,
+            [event.target.name]: event.target.checked,
+        }));
+    };
+
+    const handleAgreedCheckBoxsChange = (event) => {
+        setCheckedAgreedItems((prevCheckedItems) => ({
             ...prevCheckedItems,
             [event.target.name]: event.target.checked,
         }));
@@ -314,23 +333,154 @@ export default function Student() {
                         label="Enter Email ID Of Student"
 
                     />
-                     <Box height={20} />
-                    <Divider style={{ background: 'gray', margin: 0 }} variant="inset" />
-                    <Box height={20} />
-                    <Typography variant="body" style={{ paddingTop: '10px' }}>
-                        Register New Student
-                    </Typography>
 
                     <Box height={20} />
                     <Divider style={{ background: 'gray', margin: 0 }} variant="inset" />
                     <Box height={20} />
+
                     <Box display="flex" justifyContent="flex-end">
 
-                        <Button onClick={() => { }} variant="outlined" style={{ color: '#001233', borderColor: '#001233' }}>
+                        <Button onClick={() => { setRegistrationPage(true) }} variant="outlined" style={{ color: '#001233', borderColor: '#001233' }}>
                             Search
                         </Button>
                     </Box>
 
+
+                    {openRegistrationPage === true ? <div>
+                        <Box height={20} />
+                        <Divider style={{ background: 'gray', margin: 0 }} variant="inset" />
+                        <Box height={20} />
+                        <Typography variant="body" style={{ paddingTop: '10px' }}>
+                            Register New Student
+                        </Typography>
+
+
+                        <Box height={20} />
+                        <Divider style={{ background: 'gray', margin: 0 }} variant="inset" />
+                        <Box height={20} />
+
+                        <TextField
+                            className={classes.textField}
+                            variant="outlined"
+
+                            sx={{
+                                '& .MuiInputBase-root': {
+                                    height: '40px',
+                                    width: "530px", // Customize the height here
+                                },
+                                '& .MuiInputAdornment-positionEnd': { marginRight: 0, paddingRight: 0 },
+                                paddingTop: "10px",
+
+                            }}
+                            label="First Name"
+
+                        />
+
+                        <TextField
+                            className={classes.textField}
+                            variant="outlined"
+
+                            sx={{
+                                '& .MuiInputBase-root': {
+                                    height: '40px',
+                                    width: "530px", // Customize the height here
+                                },
+                                '& .MuiInputAdornment-positionEnd': { marginRight: 0, paddingRight: 0 },
+                                paddingTop: "10px",
+
+                            }}
+                            label="Last Name"
+
+                        />
+
+                        <TextField
+                            className={classes.textField}
+                            variant="outlined"
+
+                            sx={{
+                                '& .MuiInputBase-root': {
+                                    height: '40px',
+                                    width: "530px", // Customize the height here
+                                },
+                                '& .MuiInputAdornment-positionEnd': { marginRight: 0, paddingRight: 0 },
+                                paddingTop: "10px",
+
+                            }}
+                            label="Email"
+
+                        />
+
+                        <TextField
+                            type="password"
+                            className={classes.textField}
+                            variant="outlined"
+
+                            sx={{
+                                '& .MuiInputBase-root': {
+                                    height: '40px',
+                                    width: "530px", // Customize the height here
+                                },
+                                '& .MuiInputAdornment-positionEnd': { marginRight: 0, paddingRight: 0 },
+                                paddingTop: "10px",
+
+                            }}
+                            label="Password"
+
+                        />
+
+                        <Select value={selectedClassValue} onChange={handleClassChange} sx={{ width: '100%', height: '40px', marginTop: "10px", }}>
+                            <MenuItem value="Class 01">Class 01</MenuItem>
+                            <MenuItem value="Class 02">Class 02</MenuItem>
+                            <MenuItem value="Class 03">Class 03</MenuItem>
+                            <MenuItem value="Class 04">Class 04</MenuItem>
+                            <MenuItem value="Class 05">Class 05</MenuItem>
+                            <MenuItem value="Class 06">Class 06</MenuItem>
+                            <MenuItem value="Class 07">Class 07</MenuItem>
+                            <MenuItem value="Class 08">Class 08</MenuItem>
+                            <MenuItem value="Class 09">Class 09</MenuItem>
+                            <MenuItem value="Class 10">Class 10</MenuItem>
+                            <MenuItem value="Class 11">Class 11</MenuItem>
+                            <MenuItem value="Class 12">Class 12</MenuItem>
+                        </Select>
+
+
+                        <Select value={selectedBatchValue} onChange={handleBatchChange} sx={{ width: '100%', height: '40px', marginTop: "10px", }}>
+                            <MenuItem value="Batch Option 1">Batch Option 1</MenuItem>
+                            <MenuItem value="Batch Option 2">Batch Option 2</MenuItem>
+                            <MenuItem value="Batch Option 3">Batch Option 3</MenuItem>
+                            <MenuItem value="Batch Option 4">Batch Option 4</MenuItem>
+                        </Select>
+                        <Box height={20} />
+                        <FormControlLabel
+
+                            control={
+                                <Checkbox
+                                    checked={checkedAgreedItems.agreed || false}
+                                    onChange={handleAgreedCheckBoxsChange}
+                                    name="agreed"
+                                />
+                            }
+                            label={
+                                <Typography variant="body" style={{ paddingTop: '10px' }}>
+                                    By creating an account, I accept Terms of Service, Privacy Policy and student is 13 years or above.
+                                </Typography>
+                            }
+
+                        />
+                        <Box height={20} />
+                        <Box display="flex" justifyContent="flex-end">
+                            <Button onClick={() => { }} variant="outlined" style={{ color: '#FF595A', marginRight: "10px", borderColor: '#FF595A' }}>
+                                Cancel
+                            </Button>
+
+                            <Button onClick={() => { }} variant="outlined" style={{ color: '#001233', borderColor: '#001233' }}>
+                                Register
+                            </Button>
+                        </Box>
+
+
+                    </div>
+                        : <div></div>}
                 </Box>
             </Modal>
             <div style={{ display: 'flex', justifyContent: 'flex-end', }}>
