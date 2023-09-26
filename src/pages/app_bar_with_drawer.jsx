@@ -211,8 +211,8 @@ export default function MiniDrawer() {
             { text: 'Blueprints', icon: <FolderCopyOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/blueprints' },
             { text: 'My Instituite', icon: <AccountBalanceOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/create-paper' },
             { text: 'Batchs', icon: <SchoolOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/batches' },
-            { text: 'Students', icon: <LocalLibraryOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/my-questions' },
-            { text: 'Teachers', icon: <CastForEducationOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/my-questions' },
+            { text: 'Students', icon: <LocalLibraryOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/students' },
+            { text: 'Teachers', icon: <CastForEducationOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/teachers' },
           ].map((item) => (
             <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton component={Link} to={item.path} sx={{
