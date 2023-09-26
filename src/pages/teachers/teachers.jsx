@@ -46,10 +46,6 @@ const data = [
     { particulars: "Test Test (test@gmail.com)", qp: '0 / 5' },
 ];
 
-const handleEdit = (id) => {
-    // Handle edit action for the corresponding row
-    console.log(`Edit button pressed for row ${id}`);
-};
 
 const handleDelete = (id) => {
     // Handle delete action for the corresponding row
@@ -73,8 +69,10 @@ const style = {
 
 export default function Teachers() {
     const [open, setOpen] = React.useState(false);
+    const [helpOpen, setHelpOpen] = React.useState(false);
     const [checkedAgreedItems, setCheckedAgreedItems] = React.useState({});
     const [openTeacherRegistrationPage, setTeacherRegistrationPage] = React.useState(false);
+    const [checkedPermissionItems, setCheckedPermissionItems] = React.useState({ allowed: false });
 
     const handleOpen = () => {
         setOpen(true);
@@ -82,12 +80,38 @@ export default function Teachers() {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleHelpOpen = () => {
+        setHelpOpen(true);
+    };
+    const handleHelpClose = () => {
+        setHelpOpen(false);
+    };
     const handleAgreedCheckBoxsChange = (event) => {
         setCheckedAgreedItems((prevCheckedItems) => ({
             ...prevCheckedItems,
             [event.target.name]: event.target.checked,
         }));
     };
+
+    const handleEdit = () => {
+        handleHelpOpen();
+    };
+
+
+
+    const permissions = [
+      { id: 1, label: 'Dummy 1' },
+      { id: 2, label: 'Dummy 2' },
+      { id: 3, label: 'Dummy 3' },
+      { id: 4, label: 'Dummy 4' },
+    ];
+  
+    const handlePermissionCheckBoxsChange = (event) => {
+        setCheckedPermissionItems({ agreed: event.target.checked });
+    };
+  
+
     const classes = useStyles();
     return (
         <div className={classes.root} style={{ padding: "20px" }}>
@@ -104,21 +128,21 @@ export default function Teachers() {
                     </Breadcrumbs>
                 </div>
             </TextCard>
-            <div style={{ paddingLeft: "20px"  }}>
+            <div style={{ paddingLeft: "20px" }}>
                 <Button onClick={handleOpen} variant="contained" style={buttonStyle} >
                     Add Teacher
                 </Button>
             </div>
             <Box height={20} />
-            <Card style={{ marginLeft: "20px",  marginRight: "20px" }} elevation={0}>
+            <Card style={{ marginLeft: "20px", marginRight: "20px" , paddingRight:"40px"}} elevation={0}>
 
-                <TableContainer >
+                <TableContainer style={{ border: '1px solid #ccc', margin: "20px"}} >
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell sx={{color: "#001233",fontWeight:"bold",fontSize:"16px"}}>Particulars</TableCell>
-                                <TableCell  sx={{color: "#001233",fontWeight:"bold",fontSize:"16px"}}>QP</TableCell>
-                                <TableCell  sx={{color: "#001233",fontWeight:"bold",fontSize:"16px"}}>Actions</TableCell>
+                                <TableCell sx={{ color: "#001233", fontWeight: "bold", fontSize: "16px" }}>Particulars</TableCell>
+                                <TableCell sx={{ color: "#001233", fontWeight: "bold", fontSize: "16px" }}>QP</TableCell>
+                                <TableCell sx={{ color: "#001233", fontWeight: "bold", fontSize: "16px" }}>Actions</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -128,10 +152,10 @@ export default function Teachers() {
                                     <TableCell>{row.qp}</TableCell>
                                     <TableCell>
                                         <IconButton onClick={() => handleEdit(row.id)}>
-                                            <EditIcon  sx={{color: "#001233"}}/>
+                                            <EditIcon sx={{ color: "#001233" }} />
                                         </IconButton>
                                         <IconButton onClick={() => handleDelete(row.id)}>
-                                            <DeleteIcon   sx={{color:"#FF595A"}} />
+                                            <DeleteIcon sx={{ color: "#FF595A" }} />
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>
@@ -266,15 +290,15 @@ export default function Teachers() {
 
                         />
 
-                        
+
                         <Box height={20} />
                         <FormControlLabel
 
                             control={
                                 <Checkbox
-                                checked={checkedAgreedItems.agreed || false}
-                                onChange={handleAgreedCheckBoxsChange}
-                                name="agreed"
+                                    checked={checkedAgreedItems.agreed || false}
+                                    onChange={handleAgreedCheckBoxsChange}
+                                    name="agreed"
                                 />
                             }
                             label={
@@ -300,7 +324,102 @@ export default function Teachers() {
                         : <div></div>}
                 </Box>
             </Modal>
-            <Footer/>
+
+
+            <Modal
+                open={helpOpen}
+                onClose={handleHelpClose}
+                aria-labelledby="parent-modal-title"
+                aria-describedby="parent-modal-description"
+            >
+                <Box sx={{ ...style, width: 600 }}>
+                    <h5 id="parent-modal-title">Teacher Permission</h5>
+                    <IconButton onClick={handleHelpClose} style={{ position: 'absolute', top: 10, right: 10 }}>
+                        <CloseIcon />
+                    </IconButton>
+                    <Box height={20} />
+                    <Divider style={{ background: 'gray', margin: 0 }} variant="inset" />
+                    <Box height={20} />
+
+                    <TextField
+                        className={classes.textField}
+                        variant="outlined"
+
+                        sx={{
+                            '& .MuiInputBase-root': {
+                                height: '40px',
+                                width: "530px", // Customize the height here
+                            },
+                            '& .MuiInputAdornment-positionEnd': { marginRight: 0, paddingRight: 0 },
+                            paddingTop: "10px",
+
+                        }}
+                        label="Teacher's Email:"
+
+                    />
+                    <Box height={10} />
+
+                    <TextField
+                        className={classes.textField}
+                        variant="outlined"
+
+                        sx={{
+                            '& .MuiInputBase-root': {
+                                height: '40px',
+                                width: "530px", // Customize the height here
+                            },
+                            '& .MuiInputAdornment-positionEnd': { marginRight: 0, paddingRight: 0 },
+                            paddingTop: "10px",
+
+                        }}
+                        label="
+                            Allowed Testpaper Count:"
+                        type="number"
+
+                    />
+                    <Box height={20} />
+                    <Typography>Batch Permission (optional)</Typography>
+                    <Box height={20} />
+                    <>
+                        {permissions.map((item) => (
+                            <div>
+                            <FormControlLabel
+                                key={item.id}
+                                control={
+                                    <Checkbox
+                                        checked={checkedPermissionItems.permission}
+                                        onChange={handlePermissionCheckBoxsChange}
+                                        name="permission"
+                                    />
+                                }
+                                label={
+                                    <Typography variant="body" style={{ paddingTop: '10px' }}>
+                                        {item.label}
+                                    </Typography>
+                                }
+                            />
+                            </div>
+
+                            
+                        ))}
+                    </>
+                    <Box height={20} />
+                    <Box display="flex" justifyContent="flex-end">
+                        <Button onClick={() => { }} variant="outlined" style={{ color: '#FF595A', marginRight: "10px", borderColor: '#FF595A' }}>
+                            Cancel
+                        </Button>
+
+                        <Button onClick={() => { }} variant="outlined" style={{ color: '#001233', borderColor: '#001233' }}>
+                            Save
+                        </Button>
+                    </Box>
+
+
+
+
+                </Box>
+            </Modal>
+            <Footer />
         </div>
     );
 }
