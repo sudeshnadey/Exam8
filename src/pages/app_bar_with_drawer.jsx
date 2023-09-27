@@ -237,7 +237,7 @@ export default function MiniDrawer() {
         <List sx={{ bgcolor: "#001233",color:"#ffffff" }}>
           {[
             { text: 'Refer & Earn', icon: <AccountBalanceWalletOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/referral' },
-            { text: 'Subscriptions', icon: <SubscriptionsOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/create-paper' },
+            { text: 'Subscriptions', icon: <SubscriptionsOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/my-subscription' },
             { text: 'My Orders', icon: <FilterNoneOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/view-papers' },
           
           ].map((item) => (

@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import Footer from "../../components/shared/footer";
 import CustomCard from "../../components/shared/card";
-import LinkIcon from '@mui/icons-material/Link';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import { styled } from '@mui/material/styles';
 
