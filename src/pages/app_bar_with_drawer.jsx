@@ -236,9 +236,9 @@ export default function MiniDrawer() {
         <Divider style={{ background: 'white', margin: 0 }} variant="inset" />
         <List sx={{ bgcolor: "#001233",color:"#ffffff" }}>
           {[
-            { text: 'Refer & Earn', icon: <AccountBalanceWalletOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/' },
-            { text: 'Subscriptions', icon: <SubscriptionsOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/create-paper' },
-            { text: 'My Orders', icon: <FilterNoneOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/view-papers' },
+            { text: 'Refer & Earn', icon: <AccountBalanceWalletOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/referral' },
+            { text: 'Subscriptions', icon: <SubscriptionsOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/my-subscription' },
+            { text: 'My Orders', icon: <FilterNoneOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/my-orders' },
           
           ].map((item) => (
             <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
