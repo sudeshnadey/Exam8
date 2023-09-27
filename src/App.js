@@ -11,6 +11,7 @@ import Batch from './pages/batch/batch.jsx';
 import MiniDrawer from './pages/app_bar_with_drawer';
 import Student from './pages/students/students';
 import Teachers from './pages/teachers/teachers';
+import ReferAndEarn from './pages/referAndEarn/refer_and_earn';
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/batches" element={<Batch />} />
           <Route path="/students" element={<Student />} />
           <Route path="/teachers" element={<Teachers />} />
+          <Route path="/referral" element={<ReferAndEarn />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>
