@@ -138,11 +138,11 @@ export default function Teachers() {
 
                 <TableContainer style={{ border: '1px solid #ccc', margin: "20px"}} >
                     <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell sx={{ color: "#001233", fontWeight: "bold", fontSize: "16px" }}>Particulars</TableCell>
-                                <TableCell sx={{ color: "#001233", fontWeight: "bold", fontSize: "16px" }}>QP</TableCell>
-                                <TableCell sx={{ color: "#001233", fontWeight: "bold", fontSize: "16px" }}>Actions</TableCell>
+                        <TableHead sx={{backgroundColor:"#001233"}}>
+                            <TableRow> 
+                                <TableCell sx={{ color: "#ffffff", fontWeight: "bold", fontSize: "16px" }}>Particulars</TableCell>
+                                <TableCell sx={{ color: "#ffffff", fontWeight: "bold", fontSize: "16px" }}>QP</TableCell>
+                                <TableCell sx={{ color: "#ffffff", fontWeight: "bold", fontSize: "16px" }}>Actions</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
