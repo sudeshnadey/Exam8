@@ -26,6 +26,7 @@ import Footer from "../../components/shared/footer";
 import { buttonStyle, outlineButtonStyle, useStyles } from "../../styles/dashboard/dashboard_styles";
 import { useNavigate } from 'react-router-dom';
 import AddInstitution from "../../components/dashboard/add_or_edit_insititute";
+import Profile from "../../components/dashboard/profile";
 
 const batchData = [
   { batchName: "Batch one", id: 1, batchCode: '2M62WDV', link: 'https://app.examin9.com/enroll/?batch_code=2M62WDV' },
@@ -38,6 +39,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = React.useState(false);
   const [isAddInstitutionModaOpen, setInstitutionModalOpen] = React.useState(false);
+  const [isProfileModalOpen, setProfileModalOpen] = React.useState(false);
   const [selectedBatch, setSelectedBatch] = React.useState(null);
 
   const openModal = (batch) => {
@@ -56,6 +58,15 @@ const Dashboard = () => {
 
   const closeInstitutionModal = () => {
     setInstitutionModalOpen(false);
+  };
+
+  
+  const openProfileModal = () => {
+    setProfileModalOpen(true);
+  };
+
+  const closeProfileModal = () => {
+    setProfileModalOpen(false);
   };
 
 
@@ -243,6 +254,9 @@ const Dashboard = () => {
                 />
               }
               text={"My Profile"}
+              handleCardClick={() => {
+                openProfileModal();
+              }}
             />
           </Grid>
           <Grid item style={{ marginRight: "40px" }}>
@@ -325,6 +339,10 @@ const Dashboard = () => {
       <AddInstitution
         isOpen={isAddInstitutionModaOpen}
         closeModal={closeInstitutionModal}
+      />
+      <Profile
+        isOpen={isProfileModalOpen}
+        closeModal={closeProfileModal}
       />
       <Footer />
 

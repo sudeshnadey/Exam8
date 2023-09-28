@@ -17,7 +17,7 @@ import {
     TextField,
     IconButton,
     InputAdornment,
-    Modal,
+    Modal, Radio, RadioGroup, FormControlLabel,
 } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from "react-router-dom";
@@ -29,6 +29,7 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
 import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -127,9 +128,36 @@ const outlineButtonStyle = {
     marginBottom: "5px",
 };
 
+const radioButtonStyle = {
+    color: '#001233',
+    backgroundColor: 'transparent',
+    border: `1px solid #001233`,
+    '&:hover': {
+      backgroundColor: '#001233',
+      color: '#ffffff',
+    },
+  };
+
+  const activeRadioButtonStyle = {
+    color: '#ffffff',
+    backgroundColor: '#001233',
+  };
+
 export default function ViewPaper() {
     const [open, setOpen] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState('All');
+
+    const [selectedOption, setSelectedOption] = useState('');
+
+    const handleOptionChange = (option) => {
+        if (selectedOption === option) {
+          setSelectedOption('');
+        } else {
+          setSelectedOption(option);
+        }
+      };
+    
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         setSelectedValue(event.target.value);
@@ -154,30 +182,36 @@ export default function ViewPaper() {
                 <Box sx={{ ...style, width: 600 }}>
                     <h5 id="parent-modal-title">Search  Paper By Category</h5>
                     <IconButton onClick={handleClose} style={{ position: 'absolute', top: 10, right: 10 }}>
-          <CloseIcon />
-        </IconButton>
-        <Box height={30} />
+                        <CloseIcon />
+                    </IconButton>
+                    <Box height={30} />
                     <Divider style={{ background: 'gray', margin: 0 }} variant="inset" />
-                    <div>
-                        <Box height={30} />
+                    
+                    <div >
+                        
                         <Button
-                            variant="outlined"
-                            style={outlineButtonStyle}
-                            className={classes.margin}
+                            variant={selectedOption === 'CBSE' ? 'contained' : 'outlined'}
+                            sx={{marginRight: "10px"}}
+                            style={selectedOption === 'CBSE' ? activeRadioButtonStyle : radioButtonStyle}
+                            onClick={() => handleOptionChange('CBSE')}
                         >
                             CBSE
                         </Button>
+                       
                         <Button
-                            variant="outlined"
-                            style={outlineButtonStyle}
-                            className={classes.margin}
+                            variant={selectedOption === 'EntranceExam' ? 'contained' : 'outlined'}
+                            sx={{marginRight: "10px"}}
+                            style={selectedOption === 'EntranceExam' ? activeRadioButtonStyle : radioButtonStyle}
+                            onClick={() => handleOptionChange('EntranceExam')}
                         >
-                            Enterance Exam
+                            Entrance Exam
                         </Button>
+                        
                         <Button
-                            variant="outlined"
-                            style={outlineButtonStyle}
-                            className={classes.margin}
+                            variant={selectedOption === 'JharkhandBoard' ? 'contained' : 'outlined'}
+                            sx={{marginRight: "10px"}}
+                            style={selectedOption === 'JharkhandBoard' ? activeRadioButtonStyle : radioButtonStyle}
+                            onClick={() => handleOptionChange('JharkhandBoard')}
                         >
                             Jharkhand Board
                         </Button>
@@ -185,11 +219,11 @@ export default function ViewPaper() {
                     <Box height={30} />
                     <Divider style={{ background: 'gray', margin: 0 }} variant="inset" />
                     <Box height={20} />
-                    <Button onClick={()=>{}} variant="outlined" style={{ color: '#FF595A',marginRight:"10px",borderColor:'#FF595A'}}>
+                    <Button onClick={handleClose} variant="outlined" style={{ color: '#FF595A', marginRight: "10px", borderColor: '#FF595A' }}>
                         Clear All
                     </Button>
-                  
-                    <Button onClick={()=>{}} variant="outlined"  style={{ color: '#001233',borderColor:'#001233'}}>
+
+                    <Button onClick={handleClose} variant="outlined" style={{ color: '#001233', borderColor: '#001233' }}>
                         Apply
                     </Button>
 
@@ -199,7 +233,7 @@ export default function ViewPaper() {
             <TextCard>
                 <div>
                     <Breadcrumbs separator="/" aria-label="breadcrumb">
-                        <Link style={{ textDecoration: "none",color:"#FF595A" }} to="/">
+                        <Link style={{ textDecoration: "none", color: "#FF595A" }} to="/">
                             <b>Home</b>
                         </Link>
                         <Typography color="textPrimary">
@@ -259,7 +293,7 @@ export default function ViewPaper() {
 
             </Card>
             <div style={{ margin: "20px" }}>
-                <Button variant="contained" style={buttonStyle} >
+                <Button onClick={() => { navigate("/create-paper") }} variant="contained" style={buttonStyle} >
                     Create Test Paper
                 </Button>
             </div>
@@ -279,7 +313,7 @@ export default function ViewPaper() {
                                 {item.status}
                             </Typography>
                             <Box width={10} />
-                            {!item.isCompleted ? <Button variant="outlined" style={{color: '#001233',borderColor:'#001233'}} startIcon={<SmartDisplayIcon />}>
+                            {!item.isCompleted ? <Button variant="outlined" style={{ color: '#001233', borderColor: '#001233' }} startIcon={<SmartDisplayIcon />}>
                                 Resume
                             </Button>
                                 : <Button variant="outlined" sx={{ color: "#FF595A", borderColor: "#FF595A" }} startIcon={<MenuIcon />}>
