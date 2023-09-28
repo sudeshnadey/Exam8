@@ -22,17 +22,31 @@ import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import Divider from "@mui/material/Divider";
 import Footer from "../../components/shared/footer";
-import { buttonStyle,outlineButtonStyle,useStyles} from "../../styles/dashboard/dashboard_styles";
+import { buttonStyle, outlineButtonStyle, useStyles } from "../../styles/dashboard/dashboard_styles";
+import { useNavigate } from 'react-router-dom';
 
+
+const batchData = [
+  { batchName: "Batch one", id:1 },
+  { batchName: "Batch two",id:2 },
+  { batchName: "Batch three",id:3 },
+];
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  
+
+  const handleStart = () => {
+    navigate('/create-paper');
+  };
+
   const classes = useStyles();
   return (
     <div className={classes.root} style={{ padding: "20px" }}>
       <Box height={80} />
       <TextCard>New dps public school</TextCard>
       <CustomCard cardTitle={"Generate New Question Paper"}>
-        <Button variant="contained" style={buttonStyle} >
+        <Button onClick={handleStart} variant="contained" style={buttonStyle} >
           Start
         </Button>
         <Button
@@ -54,6 +68,9 @@ const Dashboard = () => {
                 />
               }
               text={"Create Paper"}
+              handleCardClick={() => {
+                navigate('/create-paper');
+              }}
             />
           </Grid>
           <Grid item style={{ marginRight: "40px" }}>
@@ -65,6 +82,9 @@ const Dashboard = () => {
                 />
               }
               text={"View Papers"}
+              handleCardClick={() => {
+                navigate('/view-papers');
+              }}
             />
           </Grid>
           <Grid item style={{ marginRight: "40px" }}>
@@ -76,6 +96,9 @@ const Dashboard = () => {
                 />
               }
               text={"My Questions"}
+              handleCardClick={() => {
+                navigate('/my-questions');
+              }}
             />
           </Grid>
           <Grid item style={{ marginRight: "40px" }}>
@@ -87,6 +110,9 @@ const Dashboard = () => {
                 />
               }
               text={"Blueprints"}
+              handleCardClick={() => {
+                navigate('/blueprints');
+              }}
             />
           </Grid>
           <Grid item>
@@ -104,9 +130,16 @@ const Dashboard = () => {
       </CustomCard>
 
       <CustomCard cardTitle={"Batch Management"}>
-        <RowWidget batchName={"Batch one"} />
-        <RowWidget batchName={"Batch two"} />
-        <RowWidget batchName={"Batch three"} />
+        {batchData.map((batch, index) => (
+          <RowWidget
+            key={index}
+            batchName={batch.batchName}
+            handleInvite={()=>{}}
+            handleManage={()=>{
+              navigate(`/batches/${batch.id}`);
+            }}
+          />
+        ))}
       </CustomCard>
       <CustomCard cardTitle={"Institute"}>
         <TextWithLinkAndButton />

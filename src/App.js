@@ -14,6 +14,7 @@ import Teachers from './pages/teachers/teachers';
 import ReferAndEarn from './pages/referAndEarn/refer_and_earn';
 import Subscription from './pages/subscription/subscription';
 import MyOrders from './pages/myOrders/my_orders';
+import BatchDetailPage from './pages/batch/batch_detail_pages';
 
 
 const App = () => {
@@ -33,7 +34,8 @@ const App = () => {
           <Route path="/teachers" element={<Teachers />} />
           <Route path="/referral" element={<ReferAndEarn />} />
           <Route path="/my-subscription" element={<Subscription />} />
-          <Route path="/my-orders" element={<MyOrders />} />
+          <Route path="/my-orders" element={<MyOrders />} /> 
+          <Route path="/batches/:id" element={<BatchDetailPage />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>
