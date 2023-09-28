@@ -11,9 +11,9 @@ const CustomMenuCard = styled(Card)`
     }
   }
 `;
-export default function MenuCard({ icon, text }) {
+export default function MenuCard({ icon, text , handleCardClick }) {
   return (
-    <CustomMenuCard elevation={5}>
+    <CustomMenuCard elevation={5} onClick={handleCardClick}>
       <CardContent style={{ paddingRight:'60px', paddingLeft:'60px'}}>
         <Grid container direction="column" alignItems="center">
           <Grid item>{icon}</Grid>

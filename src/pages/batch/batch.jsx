@@ -21,6 +21,8 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/shared/footer";
 import { buttonStyle, blackOutlineButtonStyle } from "../../styles/dashboard/dashboard_styles";
 import { styled } from '@mui/material/styles';
+import InvitationModal from "../../components/dashboard/invitaion_modal";
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -85,6 +87,20 @@ const data = [
 ];
 export default function Batch() {
     const [open, setOpen] = React.useState(false);
+    const [isModalOpen, setModalOpen] = React.useState(false);
+    const [selectedBatch, setSelectedBatch] = React.useState(null);
+
+    const openModal = (batch) => {
+        setSelectedBatch(batch);
+        console.log(batch);
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
+    const navigate = useNavigate();
     const handleOpen = () => {
         setOpen(true);
     };
@@ -142,10 +158,10 @@ export default function Batch() {
                             </Grid>
                             <Box height={20} />
                             <Grid item>
-                                <Button variant="outlined" style={blackOutlineButtonStyle} sx={{ marginLeft: '20px' }}>
+                                <Button onClick={() => { navigate(`/batches/${item.id}`); }} variant="outlined" style={blackOutlineButtonStyle} sx={{ marginLeft: '20px' }}>
                                     Manage
                                 </Button>
-                                <Button variant="outlined" style={buttonStyle} sx={{ marginLeft: '10px' }}>
+                                <Button onClick={() => { openModal(item); }} variant="outlined" style={buttonStyle} sx={{ marginLeft: '10px' }}>
                                     Invite Students
                                 </Button>
                             </Grid>
@@ -203,6 +219,15 @@ export default function Batch() {
 
                 </Box>
             </Modal>
+            {selectedBatch && (
+                <InvitationModal
+                    isOpen={isModalOpen}
+                    closeModal={closeModal}
+                    batchName={selectedBatch.batchName}
+                    batchCode={selectedBatch.batchCode}
+                    link={selectedBatch.link}
+                />
+            )}
             <Footer />
         </div>
     );

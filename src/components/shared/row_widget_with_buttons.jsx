@@ -27,7 +27,7 @@ const InviteButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-function RowWidget({batchName}) {
+function RowWidget({batchName, handleManage, handleInvite}) {
   return (
     <RowContainer container>
       <Grid item>
@@ -42,12 +42,12 @@ function RowWidget({batchName}) {
         </Typography>
       </Grid>
       <Grid item sx={{ marginLeft: "auto" }}>
-        <ManageButton variant="outlined" style={{ marginRight: "10px" }}>
+        <ManageButton onClick={handleManage} variant="outlined" style={{ marginRight: "10px" }}>
           Manage
         </ManageButton>
       </Grid>
       <Grid item>
-        <InviteButton variant="outlined">Invite</InviteButton>
+        <InviteButton onClick={handleInvite} variant="outlined">Invite</InviteButton>
       </Grid>
     </RowContainer>
   );
