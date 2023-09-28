@@ -82,14 +82,14 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
-  color: '#FF595A',
+  color: '#ffffff',
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
-    color: '#FF595A',
+    color: '#ffffff',
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(['width', 'margin'], {
@@ -209,7 +209,7 @@ export default function MiniDrawer() {
         <List sx={{ bgcolor: "#001233",color:"#ffffff" }}>
           {[
             { text: 'Blueprints', icon: <FolderCopyOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/blueprints' },
-            { text: 'My Instituite', icon: <AccountBalanceOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/create-paper' },
+            { text: 'My Instituite', icon: <AccountBalanceOutlinedIcon style={{  color: "#FFFFFF" }}/>, path: '/' },
             { text: 'Batchs', icon: <SchoolOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/batches' },
             { text: 'Students', icon: <LocalLibraryOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/students' },
             { text: 'Teachers', icon: <CastForEducationOutlinedIcon  style={{  color: "#FFFFFF" }}/>, path: '/teachers' },

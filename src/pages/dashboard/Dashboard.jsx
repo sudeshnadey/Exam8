@@ -25,6 +25,7 @@ import Divider from "@mui/material/Divider";
 import Footer from "../../components/shared/footer";
 import { buttonStyle, outlineButtonStyle, useStyles } from "../../styles/dashboard/dashboard_styles";
 import { useNavigate } from 'react-router-dom';
+import AddInstitution from "../../components/dashboard/add_or_edit_insititute";
 
 const batchData = [
   { batchName: "Batch one", id: 1, batchCode: '2M62WDV', link: 'https://app.examin9.com/enroll/?batch_code=2M62WDV' },
@@ -32,24 +33,11 @@ const batchData = [
   { batchName: "Batch three", id: 3, batchCode: '5M62WDV', link: 'https://app.examin9.com/enroll/?batch_code=2M62WDV' },
 ];
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '1px solid #FFF',
-  boxShadow: 24,
-  pt: 2,
-  px: 4,
-  pb: 3,
-};
-
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = React.useState(false);
+  const [isAddInstitutionModaOpen, setInstitutionModalOpen] = React.useState(false);
   const [selectedBatch, setSelectedBatch] = React.useState(null);
 
   const openModal = (batch) => {
@@ -61,6 +49,16 @@ const Dashboard = () => {
   const closeModal = () => {
     setModalOpen(false);
   };
+
+  const openInstitutionModal = () => {
+    setInstitutionModalOpen(true);
+  };
+
+  const closeInstitutionModal = () => {
+    setInstitutionModalOpen(false);
+  };
+
+
   const handleStart = () => {
     navigate('/create-paper');
   };
@@ -168,7 +166,7 @@ const Dashboard = () => {
           />
 
         ))}
-       
+
       </CustomCard>
       <CustomCard cardTitle={"Institute"}>
         <TextWithLinkAndButton />
@@ -185,6 +183,9 @@ const Dashboard = () => {
                 />
               }
               text={"My Institute"}
+              handleCardClick={() => {
+                openInstitutionModal();
+              }}
             />
           </Grid>
           <Grid item style={{ marginRight: "40px" }}>
@@ -196,6 +197,9 @@ const Dashboard = () => {
                 />
               }
               text={"Batches (3)"}
+              handleCardClick={() => {
+                navigate('/batches');
+              }}
             />
           </Grid>
           <Grid item style={{ marginRight: "40px" }}>
@@ -207,6 +211,9 @@ const Dashboard = () => {
                 />
               }
               text={"Students (1)"}
+              handleCardClick={() => {
+                navigate('/students');
+              }}
             />
           </Grid>
           <Grid item style={{ marginRight: "40px" }}>
@@ -218,6 +225,9 @@ const Dashboard = () => {
                 />
               }
               text={"Teachers"}
+              handleCardClick={() => {
+                navigate('/teachers');
+              }}
             />
           </Grid>
         </Grid>
@@ -244,6 +254,9 @@ const Dashboard = () => {
                 />
               }
               text={"Subscription"}
+              handleCardClick={() => {
+                navigate('/my-subscription');
+              }}
             />
           </Grid>
           <Grid item style={{ marginRight: "40px" }}>
@@ -255,6 +268,9 @@ const Dashboard = () => {
                 />
               }
               text={"Refer & Earn"}
+              handleCardClick={() => {
+                navigate('/referral');
+              }}
             />
           </Grid>
         </Grid>
@@ -269,7 +285,7 @@ const Dashboard = () => {
           </Typography>
           <Box height={10} />
           <Button variant="contained" style={buttonStyle} color="success">
-            Share
+            Share Feedback
           </Button>
         </center>
       </CustomCard>
@@ -296,16 +312,20 @@ const Dashboard = () => {
         </List>
       </CustomCard>
       {selectedBatch && (
-          <InvitationModal
-            isOpen={isModalOpen}
-            closeModal={closeModal}
-            batchName={selectedBatch.batchName}
-            batchCode={selectedBatch.batchCode}
-            link={selectedBatch.link}
-          />
-        )}
+        <InvitationModal
+          isOpen={isModalOpen}
+          closeModal={closeModal}
+          batchName={selectedBatch.batchName}
+          batchCode={selectedBatch.batchCode}
+          link={selectedBatch.link}
+        />
+      )}
 
       <Box height={3} />
+      <AddInstitution
+        isOpen={isAddInstitutionModaOpen}
+        closeModal={closeInstitutionModal}
+      />
       <Footer />
 
     </div>
