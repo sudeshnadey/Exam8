@@ -2,6 +2,7 @@ import React from "react";
 import CustomCard from "../../components/shared/card";
 import Button from "react-bootstrap/Button";
 import TextCard from "../../components/dashboard/text-card";
+import InvitationModal from "../../components/dashboard/invitaion_modal";
 import { Box, Typography, List, ListItem } from "@material-ui/core";
 import { Grid } from "@material-ui/core/";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
@@ -25,17 +26,41 @@ import Footer from "../../components/shared/footer";
 import { buttonStyle, outlineButtonStyle, useStyles } from "../../styles/dashboard/dashboard_styles";
 import { useNavigate } from 'react-router-dom';
 
-
 const batchData = [
-  { batchName: "Batch one", id:1 },
-  { batchName: "Batch two",id:2 },
-  { batchName: "Batch three",id:3 },
+  { batchName: "Batch one", id: 1, batchCode: '2M62WDV', link: 'https://app.examin9.com/enroll/?batch_code=2M62WDV' },
+  { batchName: "Batch two", id: 2, batchCode: '6762WDV', link: 'https://app.examin9.com/enroll/?batch_code=2M62WDV' },
+  { batchName: "Batch three", id: 3, batchCode: '5M62WDV', link: 'https://app.examin9.com/enroll/?batch_code=2M62WDV' },
 ];
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '1px solid #FFF',
+  boxShadow: 24,
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  
+  const [isModalOpen, setModalOpen] = React.useState(false);
+  const [selectedBatch, setSelectedBatch] = React.useState(null);
 
+  const openModal = (batch) => {
+    setSelectedBatch(batch);
+    console.log(batch);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   const handleStart = () => {
     navigate('/create-paper');
   };
@@ -134,12 +159,16 @@ const Dashboard = () => {
           <RowWidget
             key={index}
             batchName={batch.batchName}
-            handleInvite={()=>{}}
-            handleManage={()=>{
+            handleInvite={() => {
+              openModal(batch);
+            }}
+            handleManage={() => {
               navigate(`/batches/${batch.id}`);
             }}
           />
+
         ))}
+       
       </CustomCard>
       <CustomCard cardTitle={"Institute"}>
         <TextWithLinkAndButton />
@@ -266,8 +295,19 @@ const Dashboard = () => {
           </ListItem>
         </List>
       </CustomCard>
-      <Footer />
+      {selectedBatch && (
+          <InvitationModal
+            isOpen={isModalOpen}
+            closeModal={closeModal}
+            batchName={selectedBatch.batchName}
+            batchCode={selectedBatch.batchCode}
+            link={selectedBatch.link}
+          />
+        )}
+
       <Box height={3} />
+      <Footer />
+
     </div>
   );
 };

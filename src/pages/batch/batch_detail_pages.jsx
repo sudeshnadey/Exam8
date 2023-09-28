@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextCard from "../../components/dashboard/text-card";
 import {
@@ -13,8 +13,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import Footer from "../../components/shared/footer";
-import { buttonStyle, outlineButtonStyle,blackOutlineButtonStyle } from "../../styles/dashboard/dashboard_styles";
-import FilterListIcon from '@mui/icons-material/FilterList';
+import { outlineButtonStyle, blackOutlineButtonStyle } from "../../styles/dashboard/dashboard_styles";
 import { useParams } from 'react-router-dom';
 import CustomCard from "../../components/shared/card";
 import MenuCard from "../../components/shared/menu_card";
@@ -23,7 +22,7 @@ import CastForEducationOutlinedIcon from "@mui/icons-material/CastForEducationOu
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import SmartDisplayOutlinedIcon from '@mui/icons-material/SmartDisplayOutlined';
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
-
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -53,7 +52,11 @@ const data = [
     { label: "Links", value: 0 },
 ];
 
+
 export default function BatchDetailPage() {
+    const navigate = useNavigate();
+   
+
     const { id } = useParams();
     const batch = batchData.find((batch) => batch.id === parseInt(id));
 
@@ -89,6 +92,9 @@ export default function BatchDetailPage() {
                                 />
                             }
                             text={"Students (1)"}
+                            handleCardClick={() => {
+                                navigate('/students');
+                            }}
                         />
                     </Grid>
                     <Grid item style={{ marginRight: "40px" }}>
@@ -100,6 +106,9 @@ export default function BatchDetailPage() {
                                 />
                             }
                             text={"Teachers"}
+                            handleCardClick={() => {
+                                navigate('/teachers');
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -185,6 +194,7 @@ export default function BatchDetailPage() {
                 </Grid>
             </CustomCard>
 
+         
             <Footer />
         </div>
     );
